@@ -1,0 +1,4 @@
+﻿  main.c
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(9,20): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(10,21): warning C4018: '<': incompatibilidade de signed/unsigned
+  Snake Game.vcxproj -> C:\Personal Projects\C++\Snake Game\x64\Debug\Snake Game.exe
