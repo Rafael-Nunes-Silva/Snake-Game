@@ -1,4 +1,11 @@
 ﻿  main.c
-C:\Personal Projects\C++\Snake Game\Snake Game\main.c(9,20): warning C4018: '<': incompatibilidade de signed/unsigned
-C:\Personal Projects\C++\Snake Game\Snake Game\main.c(10,21): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(75,3): warning C4550: expressão é avaliada como uma função cuja lista de argumentos está faltando
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(129,11): warning C4473: 'scanf_s' : não há argumentos suficientes transmitidos para a cadeia de caracteres de formato
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(129,11): message : espaços reservados e seus parâmetros esperam 2 argumentos variadic, mas 1 foram fornecidos
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(129,11): message : o argumento variadic 2 ausente é requerido pela cadeia de formato '%c'
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(129,11): message : esse argumento é usado como um tamanho do buffer
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(190,10): warning C4473: 'scanf_s' : não há argumentos suficientes transmitidos para a cadeia de caracteres de formato
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(190,10): message : espaços reservados e seus parâmetros esperam 2 argumentos variadic, mas 1 foram fornecidos
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(190,10): message : o argumento variadic 2 ausente é requerido pela cadeia de formato '%c'
+C:\Personal Projects\C++\Snake Game\Snake Game\main.c(190,10): message : esse argumento é usado como um tamanho do buffer
   Snake Game.vcxproj -> C:\Personal Projects\C++\Snake Game\x64\Debug\Snake Game.exe
