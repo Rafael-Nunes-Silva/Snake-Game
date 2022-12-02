@@ -75,24 +75,24 @@ void PlaceFood(int gameWidth, int gameHeight) {
 		PlaceFood;
 }
 
-int main(void) {
+void RunGame() {
 	int gameWidth = 0, gameHeight = 0;
 
 	printf("Set the width of the game (default is %i):", gameWidth);
 	scanf_s("%u", &gameWidth);
 	if (gameWidth < 4)
 		gameWidth = 120;
-	gameWidth+=3; // add 3 more to game width so it can fit 2 borders and a line break
+	gameWidth += 3; // add 3 more to game width so it can fit 2 borders and a line break
 
 	printf("Set the height of the game (default is %i):", gameHeight);
 	scanf_s("%u", &gameHeight);
 	if (gameHeight < 4)
 		gameHeight = 40;
-	gameHeight+=2; // add 2 more to game height so it can fit 2 borders
+	gameHeight += 2; // add 2 more to game height so it can fit 2 borders
 
 	int dBufferLength = gameWidth * gameHeight * sizeof(char);
 
-	displayBuffer = malloc(dBufferLength+1);
+	displayBuffer = malloc(dBufferLength + 1);
 	if (!displayBuffer) {
 		printf("Couldn't alocate necessary memory for 'displayBuffer'");
 		free(displayBuffer);
@@ -110,12 +110,12 @@ int main(void) {
 	}
 	snake[0].x = (gameWidth - 3) / 2;
 	snake[0].y = (gameHeight - 2) / 2;
-	snake[1].x = snake[0].x+1;
+	snake[1].x = snake[0].x + 1;
 	snake[1].y = snake[0].y;
 	snakeLength = 2;
 
-	food.x = rand() % (gameWidth-3)+ 1;
-	food.y = rand() % (gameHeight-2)+1;
+	food.x = rand() % (gameWidth - 3) + 1;
+	food.y = rand() % (gameHeight - 2) + 1;
 
 	int endState = 0; // 1 = win | -1 = lost
 
@@ -150,7 +150,7 @@ int main(void) {
 			MoveSnake(newPos);
 			break;
 		case 'A':
-			newPos.x = snake[0].x-1;
+			newPos.x = snake[0].x - 1;
 			newPos.y = snake[0].y;
 
 			quit = (!IsInside(newPos, gameWidth, gameHeight) || IsSnake(newPos) ? 1 : 0);
@@ -158,7 +158,7 @@ int main(void) {
 			MoveSnake(newPos);
 			break;
 		case 'D':
-			newPos.x = snake[0].x+1;
+			newPos.x = snake[0].x + 1;
 			newPos.y = snake[0].y;
 
 			quit = (!IsInside(newPos, gameWidth, gameHeight) || IsSnake(newPos) ? 1 : 0);
@@ -173,23 +173,32 @@ int main(void) {
 		}
 	}
 
-	switch(endState) {
+	switch (endState) {
 	case 1:
-		printf("\n***********\n*You Won:)*\n***********\n");
+		printf("\n***********\n*You Won:)*\n***********\n\n");
 		break;
 	case -1:
-		printf("\n************\n*You Lost:(*\n************\n");
+		printf("\n************\n*You Lost:(*\n************\n\n");
 		break;
 	}
 
 	free(displayBuffer);
 	free(snake);
 
-	printf("Play again? (Y/N):");
+	printf("Play again? (Y/N):\0");
 	char again = ' ';
+	getchar();
 	scanf_s("%c", &again);
-	if (again == 'Y')
-		main();
+	if (again == 'Y') {
+		system("cls");
+		RunGame();
+	}
+}
+
+int main(void) {
+	int run = 1;
+
+	RunGame();
 
 	return 0;
 }
